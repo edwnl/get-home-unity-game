@@ -1,197 +1,181 @@
-# Project 2 Report
+# Get Home - Unity WebGL Game
+## Overview
 
-Read our GDD [here](GDD.md).
+In Get Home, players take on the role of a courageous mother duck tasked with guiding her adorable ducklings back to their coop before darkness falls. As daylight dwindles, players must navigate through the forest, strategically avoiding predators like wolves and crocodiles while utilizing special abilities to protect their ducklings. With immersive low-poly visuals and dynamic gameplay, Get Home offers a captivating journey filled with challenges and heartwarming moments.
 
-## Table of Contents
+**Game Trailer: https://youtu.be/ZRGcz-LNzS0**
 
-* [Evaluation Plan and Report](#evaluation-plan-and-report)
-	* [Timeline](###TimeLine)
- 	* [Responsibilities](###Responsibilities)
-  * [Observational Methods](###Observational-Methods)
-  * [Querying Techniques](###Querying-techniques)
-  * [Feedback and Changes](###Improvements-based-on-Evaluation/Feedback) 
-* [Shaders and Special Effects](#shaders-and-special-effects)
-	* [Particle System](###Particle-Systems)
-* [Summary of Contributions](#summary-of-contributions)
-* [References and External Resources](#references-and-external-resources)
+**Play it here!: https://comp30019.github.io/project-2-naurway-studios/**
 
+### Gameplay Mechanics
+1. **Player Abilities** - The player will start with 3 basic abilities:
+  * **Peck** - The player's basic ability. Binded to 'Q' , use this ability to fend off predators, when used in quick succession to each other and within a time frame. Knocks back the enemies.
+    <p align="center">
+      <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Mother%20Duck%20and%20Duckling%20Images/peck.png" width="200"/>
+      <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/newQAbility.gif" width="500"/>
+    </p>
+    
+  * **Wing Assault** - When 'E' is pressed, the duck to rolls forwards, allowing the player to outmaneuver the enemies. However the ducklings will not follow so the player must go back and collect them.
+     <p align="center">
+       <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Mother%20Duck%20and%20Duckling%20Images/wing.png" width="200"/>
+       <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/abilityE1.gif" width="350"/>
+       <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/abilityE2.gif" width="350"/>
+       
+    </p>
+   
+  * **Honk Surprise** - When 'W' is pressed, an egg projectile from mama duck capable of rendering an enemy stunned in surprise, opening a window of attack for mama duck.
+    <p align="center">
+      <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Mother%20Duck%20and%20Duckling%20Images/honk%20.png" width="200"/>
+      <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/wolfStun.gif" width="500"/>
+   </p>
 
-## Evaluation Plan and Report
-
-Testing our game with real players is necessary to gather qualitative and quantitative data on user experience, gameplay mechanics, and potential areas of improvement for the game. 
-Therefore, we will invite 10 participants to test our game. 5 participants for observational evaluation and 5 participants for query evaluation. 
-
-These participants will be close friends of ours also in University, but we will have people of different degree backgrounds and varying experience with video games.
-We will randomly select participants from the library to test our game for the querying evaluation since we will be doing a questionnaire, making it quick and efficient. For the interview portion, we will be conducting it in a study room with close friends that have more experience with video games. 
-
-The results will be written in an excel spreadsheet, then analyzed and written into an evaluation report. After every evaluation round, changes will be made on time and documented. 
-
-Testing should be done regularly and improvements made simultaneously. 
-Bug fixes should also be done regularly to prevent having too many problems near the end. Since we will have a Numeric Rating Scale for the questionnaire, if any score is below what we expected e.g. below 2.5 or above depending on the question, it will mean that we have to make changes to the game. 
-
-### TimeLine:
-
-| Date                                   | Event                                                                                                                  |
-|----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| Sunday 8th October                     | Evaluation demo complete<br>Evaluation plan also complete                                                               |
-| Tuesday 10th October                   | Gather 5 people for Observational Evaluation                                                                            |
-| Wednesday 11th October                 | Gather 5 people for Query Evaluation<br>First round of evaluation done.<br>At least 3 participants.                     |
-| Saturday 14th October                  | Keep implementing changes from evaluations and making the gameplay video                                                |
-| Sunday 15th October                    | Gameplay Video submission                                                                                              |
-| From Monday 16th to Sunday 31st October| Keep getting participants to test games and improve the game.<br>Observational and Query Evaluation should be done at least once a week.<br>Analysis and report writing will be continuously done alongside any changes made in the game.<br>Changes such as bug fixes and new features or improvements to the game will be updated regularly on github.<br>Second and third rounds of evaluations should also be done during this time.<br>3-4 Participants per round of evaluation.<br>Total participants should be 10 at the end of evaluation period. |
-| Sunday 31st October                    | Final Submission                                                                                                       |
-
-
-### Responsibilities:
-
-Depending on the bugs and fixes we need to do to improve our game, each task will be delegated equally among team members.
-
-We will also find around 3-4 people per teammate to participate in the evaluation.
-
-To ensure everyone contributes equally, clear communication is required. We will communicate regularly through the group chat, and use resources such as Trello to delegate tasks equally.
-
-- **1 team member** will be in charge of the mechanics of the games. Such as features and abilities of the main character.
-  - E.g. Enemy spawning, damage and abilities, controllers for moving entities in the game and camera movements.
-
-- **1 team member** will work on shaders, the map and particle systems.
-  - E.g. Shaders for the environment, particle systems for in game visual effects, making sure the map is generated correctly and there are no missing objects.
-
-- **1 team member** will work on the menu scene, ending scene, cutscenes, instructions, and anything else to do with UI.
-  - E.g. Polishing the menu scene with our own art, making the game more visually appealing, and making sure the instructions and objectives are clear so the player will be able to understand the narrative that we are trying to tell.
-
-
-### Observational Methods
-
-We will employ three observational methods in the evaluation process of the game. This is because the level of experience of each participant will be different, therefore to maximize feedback potential, we will be using the Think Aloud, Cooperative Evaluation and Post-task walkthrough methods. 
-Depending on the type of player and the stage of development in our game, the observational method will differ.
-We will give the player a choice, by asking them if they would like to think aloud while playing the game and if they would like assistance.
-Given the answers, the appropriate method will be chosen to balance extracting information and avoiding interruptions. 
-
-E.g If the player does not mind thinking aloud and having assistance, then the observer may choose either Think aloud or Cooperative Evaluation. 
-On the other hand, if the player does not really want to think aloud or have assistance, then the Post-task walkthrough method is chosen. 
-However, in the final stages of the game development, Post-task walkthrough will be used more often as we want to be able to have the players experience the game on their own without any external help as that will help indicate whether our game is on its way to being complete. 
-
-
-#### 1. Think Aloud
-While the player is playing the game, we will ask them to describe what they are doing, what they will do next, what they expect to happen, what they think about the map. If they are confused about anything, we would like them to voice it. Any thought they have about our game we want voiced.
-This is a subjective way to gain information. It is a good way for us to get the player’s first-hand impressions of our game, we will be taking notes on what the player has to say. After they have finished playing the game, we will ask them questions to further clarify any remarks and feelings they had about our game.
-Players using this method will likely be close friends, this will reduce the awkwardness and the opinions will be more honest.
-
-
-#### 2. Cooperative Evaluation
-This is like thinking aloud, but the player can actually ask us about the game. We can also give input and ask them to test features out. If the player would like to receive assistance during the game. This method is a good option. 
-It is more collaborative and because experimenters can ask questions, a wider range of features and mechanics can be tested. 
-In the early stages of game development, there will be bugs and unintentional situations that may occur. If the player encounters any of these obstacles, it is much more time efficient for the experimenter to help resolve those issues and in turn record the bug in the results. 
-However we must be careful to not reveal too much as the results could become biased if we help too much. 
-
-
-#### 3. Post-Task Walkthrough
-Here, we will allow the player to go through the game without any interruptions. Afterwards, we will ask them about specific things they remembered about the game. To avoid the user forgetting things, we will record them while playing the game.
-This method is useful towards the end of the project when we want to make sure that the game will be playable on its own. 
-Here, the player can spend more time in the game environment and really test out the mechanics and game behavior. 
-
-
-#### Results Table:
-| Player Name | Date | Background | Querying Technique | Results | Evaluation |
-|-------------|------|------------|--------------------|---------|------------|
-|     Yolanda        |  Wednesday, 11th October 2023    |   Very little experience with games. Mostly mobile games.          |  Think aloud    |  Players initial reaction to the map was positive. She was very happy with the animations and graphics of the ducks and wolves. When playing the game, there were times where she felt the pace of the game was slow, especially when crossing the river and mud as there is nothing to do but wait until the main character passes through. Controls and objective was easy to understand.       |   At certain times, the game can feel boring and laborious, especially because certain areas of the map are long, with very little enemies at times.         |
-|   Chaeyoung          |  Wednesday, 11th October 2023    |    Lots of experience with games, especially with role-playing PC games.        |   Cooperative Evaluation                 |  The players initial reaction to the game was positive. She understood the objective and controls of the game immediately. When she was exploring the map, we asked her to interact with objects such as wolves, water, mud and trees to test for any abnormalities in game physics. We asked her to explore as much of the map as possible to see her reaction and if it was interesting and captivating enough.        |    We found that the game needed more excitement. Having one standard enemy i.e. wolves, means that overtime, there is a lot of repetition. We could also remake the map to be more interesting.         |
-|      Peter       |    Wednesday, 11th October 2023  | Lots of experience with mobile shooter games such as Valorant and MOBA games such as League of Legends |  Think aloud   |  Player knew what to do throughout most of the game. He followed the path on the map and killed wolves using the abilities of the mother duck. The game also challenged him, this surprised him. Due to the games low poly style and cute animations, players usually expect the game to be relatively slow paced and not as difficult and challenging. However, the game lasted around 4 minutes, which means we needed to either add new features or extend the map.        |  By adding new features, such as a boss fight and different types of enemies. The ending of the game can be more exciting, like a climax at the end of the story.           |
-|         Ben    | Wednesday, 25th October 2023     |    Lots of experience with RPG and sandbox games such as Minecraft and terraria.        |   Post-Task Walkthrough                 |  Around this time, we had implemented new features, such as a boss fight with a bear at the end of the game, alligators in the river and changes to the map. By letting the player go through the whole game first, we were able to see how new players would approach the game. Seeing our game through a fresh pair of eyes allowed us to see the progress and potential areas of improvements. One particular area would be the swimming and mud. When abilities were used while in the river, sometimes the duck would go off into different directions making it hard to control. Additionally, the player was able to defeat the boss and make it home. The game also lasted more than 5 minutes which was what we hoped for.        |     The gameplay and mechanics of the game are not perfect yet. More testing of the duck in different areas of the map needed to be able to polish the player controls off. |
-|     Grace        |   Wednesday, 25th October 2023   |  Beginner experience-level. Has played games such as Valorant and League with friends. |  Post-Task Walkthrough                  | Having someone who does not often play games was actually really useful. We were able to test if our controls and objective for the game was clear. We were also able to see if the difficulty of our game was too high for an average player. Watching our player go through the game, we were able to see their reactions to certain features in the game. Overall, it was a positive gameplay experience for our player. However, there were still some minor bugs and details that had to be fixed and polished.        |   Fix bugs on movement, polish the main menu and ending scene. Continue testing on others to find more bugs and improve gameplay experience.         |
-
-
-
-### Querying Techniques
-
-#### 1. Questionnaire
-Questionnaires are easy to administer and analyze. They allow for easy comparison across different users and can involve as many participants as possible. 
-That is why we choose to use a Questionnaire on our players that are less experienced with video games. 
-
-- We will use closed questions in our questionnaires and a Numeric Rating Scale from 1 to 5. We will then take the average response across all players.
-
-| Questions                                                     | Stephanie    | Tony             | Jack   | Sofia  | Evita | Average Response |
-|---------------------------------------------------------------|--------------|------------------|--------|--------|-------|------------------|
-| I found the game fun                                          |     4        |        3         |    4   |   3.5  |   4.2 |        3.74      |
-| The game controls were easy to understand and use             |    5         |      4           |   4.5  |   4.7  |   5   |      4.64        |
-| The graphics were visually appealing                          |        3     |        3.5       |   3    |     4  |   3.5 |        3.4       |
-| I found the game challenging                                  |         4    |         4        |  3.5   |   4.5  |   3   |            3.8   |
-| I found the storyline interesting                             |       4.5    |        4          |    4    |    3.8    |     4.5  |         4.16         |
-| I found the game quite buggy                                  |        4.8   |          5        |    4    |    4    |   3.5    |        4.26          |
-| The gameplay was smooth and there were no noticable glitches  |  2.5         |           2       |     3   |     2.5   |    2   |          2.4        |
-| I felt there was enough features in the game                  |        4     |            4      |      3.5  |    3    |    4   |         3.7         |
-| I found the objective clear and easy to navigate              |        5     |             5     |      4.5  |     5   |    5   |        4.9          |
-| I would play this game again                                  |       4.5    |              5    |      4.5  |      5  |    5   |        4.8          |
-
-
-#### 2. Interview 
-In our Evaluation Plan, a decision was made to prioritize interviews with players who possess an extensive history of engaging with a wide array of video game genres and timed survival mechanics. This group of players would be uniquely positioned to provide in-depth, critical, and constructive feedback.
-
-Reasons why: 
-1. Expertise: Players with a broad gaming background are likely to have encountered diverse game mechanics, narratives, and design philosophies. This allows them to draw comparisons and contrasts more effectively.
-
-2. Critical Evaluation: Their experience equips them to discern subtleties in gameplay, which can lead to more incisive critiques.
-
-3. Identification of Flaws: Players can help pinpoint areas of weakness, potential design oversights, and technical bugs that may be overlooked by in-experienced players.
-
-4. Affirmation of Strengths: While identifying areas of improvement is crucial, recognizing the game's strengths is equally significant. Experienced players can provide validation on elements the game executed well.
-
-By leveraging the insights of more experienced players, we aim to harness their expertise and feedback for a comprehensive evaluation of our game, ensuring that it meets high standards. 
-
-The interview should be structured as a verbal questionnaire. It would be like a conversation with close-ended questions to focus on the qualitative aspects of the game in order to grasp a feel of player experience. The second part of the interview will be open-ended questions that give the players opportunities to expand on their close-ended answers and give any additional feedback. 
-
-- **Close-Ended Questions**
-
-    | Close-Ended Questions                  | Overall Feedback                                                                                                       |
-    |----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-    | Did you feel a consistent sense of urgency due to the time-based survival element? | Positive: Players felt the time pressure throughout the game, this kept them engaged. |
-    | Were the game’s objectives clear to you from the start? | For the most part, players answered yes. However, due to the map changes, sometimes the players found themselves wandering off into areas that were not part of the playable map. |
-    | Is the game beginner-friendly or not? | Game is moderately beginner-friendly. Mechanics and controls were easy to get, but took a bit for players to get used to. |
-    | Were the game controls easy to use and understand? | Everyone said yes. The controls were intuitive and well-laid out.  |
-    | On a scale of 1 to 5, how would you rate the game’s storyline or narrative? | Average response was 4, story was engaging and had some unexpected twists. Also it is not everyday you see a duck as the main character in a game. |
-    | Did you encounter any technical glitches or bugs while playing? | Yes, there were glitches where the character sometimes is unresponsive to mouse clicks in certain areas of the map. However, this is a rare occurrence. |
-    | Did you enjoy playing the game? | Overall everyone enjoyed playing the game. It was also visually appealing as a bonus. |
-    | Do you think the game is suitable for all experience levels ? | Yes, we tested the game on beginners, intermediate and advanced players and they all enjoyed it. |
-
-- **Open-Ended Questions**
-    | Open-Ended Questions                  | Overall Feedback                                                                                                       |
-    |----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-    | What aspects of the game stood out to you the most, both positive and negative? | Positive: Interviewees said the graphics, animation, the style of the map were outstanding. Atmosphere, vibe and tension were good. Negative: Some of the enemy AI was a bit repetitive, certain sections of the game is not as smooth. Some parts of the game felt a bit slow or laborious. |
-    | How would you improve the game’s time-survival element to enhance player engagement For example any features that could be added or new mechanics that will make the game more enjoyable. | Interviewees suggested implementing features such as power-ups, a boss at the end of the game, more enemy variation. Perhaps introducing more varied challenges and random events to heighten the sense of urgency. |
-    | Please provide feedback on the game’s environment, was it easy to navigate, was it visually appealing and was it easy to navigate around? | The game world was visually stunning with diverse landscapes. However, at times, players found it challenging to discern the right path to take, which could be frustrating. A more intuitive map or better signposting would help. |
-    | What did you think of the game overall and how can it be improved? | Overall, interviewees loved the game’s overall concept and execution. To improve, they suggested to focus on refining the AI, addressing the technical glitches, and possibly introducing more varied enemies or features |
-    | Would you recommend this game to people around you? If so, what type of people would you recommend this to and why? | Yes, every interviewee said they would recommend ti to players of all experience levels. They would especially recommend it to players who enjoy time-based survival games and cute natural graphics. | 
-
-
+  * The abilities will have cooldowns - periods of time in which we cannot use these abilities. Once we use an abilitiy, the ability icon will be blacked out and message "On Cooldown!" will be displayed on screen"
+  * If there is no target found for an ability, another message "Target Not Found" will be displayed on screen telling the player that the enemy is not within range to use that ability.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/abilityCooldown.gif" width="400"/>
+  </p>
     
 
-### Improvements based on Evaluation/Feedback 
+2. **Dynamic placement of enemies in map**
+  * Enemies are placed in the map strategically and created when the game starts. They are not static and are set to wander around a set radius. If the player enters the attack range of the enemy, they will follow the duck and attack the players ducklings. If there are ducklings, the enemies will always attack the ducklings first, if there are no ducklings left, the enemies will attack the mother duck. Once the mother duck dies, the game will end. 
+  * Enemy Pathfinding: Wolves will start following when the player enters their range, and will follow them until the player exits.
+    <p align="center">
+      <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/enemiesUI.png" width="400"/>
+    </p>
+    
+3. **Enemies**:
+  * **Wolves, Dogs, Deers, Snakes**: These are the land predators. They attack by stalking the ducklings when they come within range, if the predators reach the ducklings, they will lunge and bite them, dealing a certain amount of damage. This continues to happen as long as the ducklings are near them. Land predators can target mama duck but will always change to a duckling if available.
+    <p align="center">
+     <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/wolf.gif" width="400"/>
+    </p>
 
-#### 1. Enhancing Game Engagement
-- **Diversity in Challenges** : The game lacks variety in enemies, leading to repetitiveness.
-  - We introduced new enemy variation to keep the gameplay fresh and challenging:
-    - Crocodiles in the river
-    - Final boss fight with bear at the end of the game. This creates a heightened sense of achievement for the players.
+  * **Crocodiles**: These reside in the river only, they attack the duck by biting and deals damage to the duck and ducklings when they are within range.
+    <p align="center">
+     <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/crocodileGif.gif" width="400"/>
+    </p>
+    
+  * **Boss Bear**: Appears near the end right before the duck and ducklings reach home. The bear will be able to knock up ducklings and deal more damage, it will also have more health making it harder to defeat. The bear also has the most health so it will take more damage to defeat.
+    <p align="center">
+     <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/bear.gif" width="400"/>
+    </p>
 
-- **Map Dynamics**:  Players found some areas of the map lengthy and less engaging. We redesigned parts of the map to be more interesting and stimulating, including dead ends and being less predictable.
+
+4. **Battle - strategies and mechanics:**
+* The player has the option to kill any predators using the available abilities but this leaves the ducklings vulnerable and at risk of losing health.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/WolfDeath%2BBlood.gif" width="400"/>
+  </p>
+* The enemies will be able to reach and attack the last duckling in your line, tha means you will have a small window of opportunity to use your abilities to get the enemy to let go of your child. You have the option to stun them then attack or straight attack with peck in quick succession, which when done fast enough will get the enemy to let go and disengage.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/wolfAttackDuckling.gif" width="375"/>
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/WolfAttackingDucklings.gif" width="375"/>
+  </p>
+
+* Ducklings lost to enemies will be lost permanently.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%2012.51.41%20AM.png" width="400"/>
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/ducklingDeath.gif" width="200"/>
+  </p>
   
-- **New Features in Game**: We added in berries which the player can pick up that lets the duck heal revive a chick. 
-     
-#### 2. Gameplay & Mechanics
-- **Bugs and Glitches** : An average score of 2.4 in the "smooth gameplay" section indicates technical issues. We prioritised identifying and fixing bugs, especially those related to movement near the end of the game development process.
+* After every moving entity dies, they will have a death animation and a blood splatter that is from the blood particle system we used. This helps to enhance the visual effects of the game and help to emphasise the death of a character more. 
 
-- **Player Controls**: Some players might have found the controls less intuitive or smooth. We refined player controls based on feedback and ensure they are responsive and easy to grasp.
+* Ducklings will only follow the mama duck if she is not too far away. If too far, the ducklings will remain stationary with a question mark around their icon.  If mama duck comes back, the question mark around their icon will disappear and the duck will follow mama duck again.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%201.54.27%20AM.png" width="80" />
+  </p>
 
-#### 3. Visual & Audio Experience
-- **Graphics** : The graphics received an average score of 3.4. To enhance the visual appeal by we improved textures, animations, and environmental details.
+* When the player gets near the boss, they will be locked in the boss arena where they must defeat the boss and obtain a key to be able to leave and get home.
+  <p align="center">
+    <img src="https://github.com/COMP30019/project-2-naurway-studios/blob/main/Images/bossFight.gif" width="500"/>
+  </p>
   
-- **Main Menu and Ending Scene** : These elements serve as the first and last impression of the game. We made sure they are polished, intuitive, and visually appealing.
+* During the Boss battle, the bear is able to knock up the mother duck and ducklings, introducing a new exciting challenge into the game battle.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/bearKnockingUp.gif" width="400"/>
+  </p>
 
-#### 4. User Experience
-- **Regular Testing** : Finally, we will continuously test the game on different players to gather diverse feedback. This will aid in capturing a wide range of pain points and preferences. Until the end of the game development process. 
+6. Time Limit: As the limit approaches, the sun lowers leading to decreased vision. When time is up, the game will fade out to a black screen, and audio will indicate that the ducks have been overwhelmed by the predators.
+   <p align="center">
+     <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/sunrise.gif" width= "400"/>
+   </p>
 
+7. Interactive Environment: There will be water (either as a river or a pond) which will slow you down, and as wolves will not be able to pass water, will disengage them automatically. Mud puddles will slow you down if stepped on and not avoided, etc.
+<p align="center">
+  <img src= "https://github.com/edwnl/get-home-unity-game/blob/main/Images/duckMudShader.png" width = "450"/>
+  <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/duckSwimming.gif" width="400"/>
+</p>
 
-## Shaders and Special Effects
+8. Items in Game: The player will be able to pick up 2 items in game to enhance their abilities:
+   * Speed Mushroom - Gain 5 second speed boost
+   * Health Tomato - Health up to max health for all ducks
+   <p align="center">
+     <img src="https://github.com/COMP30019/project-2-naurway-studios/blob/main/Images/powerup.png" width="300"/>
+     <img src="https://github.com/COMP30019/project-2-naurway-studios/blob/main/Images/applePowerUp.gif" width="300"/>
+     <img src="https://github.com/COMP30019/project-2-naurway-studios/blob/main/Images/mushroomPowerup.gif" width="300"/>
+   </p>
+
+  
+  
+## LEVELS AND WORLD DESIGN
+### Game World
+The game world is 3D polyart-centric where the player progresses forward through a forest at sunset. Our world is only one level but progresses through and initiates different difficulties flagged by time. The environment that our players encounter and see is largely a worn forest floor and trail which is the main path of travel, flanked on both sides by trees and bushes to create the forest environment. Elements are subject to change depending on available assets for all options. The player will occasionally encounter a river that cuts horizontally across the map and mud puddles as interference. We aim to have the player restricted to the trail. There will be an arrow near the top of the screen that will give a general idea of where the character should go in order to make it home and the game will be restricted to two axes but still rendered in a 3D environment. Below is an example created in Unity.
+<p align="center">
+  <img src= "https://github.com/edwnl/get-home-unity-game/blob/main/Images/world.png" alt="Image 1 Description" width = "480"/>
+  <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/worldLook.png" width="480"/>
+</p>
+
+* **The Map will also feature several different areas:**
+  * The area where the boss is located
+    
+<p align="center">
+  <img src= "https://github.com/edwnl/get-home-unity-game/blob/main/Images/bearMap-wShader.png" width="500"/>
+  <img src= "https://github.com/edwnl/get-home-unity-game/blob/main/Images/bearMap-v2.png" width="500"/>
+</p>
+
+  * The river, contains fish and crocodiles
+  
+<p align="center">
+  <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/riverImage.png" width="500"/>
+  <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/riverView2.png" width="500"/>
+</p>
+
+### Objects
+The objects we have in the game are our enemy entities. All assets are low poly in style. When the duck collider collides with water, the duck swimming animation will activate and the movement speed of the duck slows. When the duck touches mud, the duck will also slow down but the animation will stay the same. More on interactions in the next section. 
+
+Particles systems include fireflies and blood systems for immersion.
+<p align="center">
+  <img src = "https://github.com/COMP30019/project-2-naurway-studios/assets/19798018/3caa73a4-1030-4a43-9c4d-cc6f67f7ef31" width = "550"/>
+</p>
+
+The environmental physics we have are the interactions between the mud/water(river) and the player, and we aim to have their effects both visual and game-related implemented into the game (speed/slow).  Next is the interaction between the player and the enemies, all are collideable with each other. The only other interaction to note is between the ability Wing Assault where there is a knockback mechanic between the player and the wolves.
+
+For example, when the duck enters the water, their speed will slow down and they will start swimming. 
+This creates a change of pace in the game and introduces a new challenge into the game. The duck must cross the river and avoid the crocodiles under the time pressure. 
+<p align="center">
+ <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/duckswim1.gif" width="400"/>
+</p>
+
+The house will be the final destination, if the player reaches this place with the key that is only obtained after defeating the Boss, then a Victory scene will be played.
+<p align="center">
+  <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/home%20and%20key.gif" width="400"/>
+</p>
+
+## ART AND AUDIO
+### Art Style
+We aim for the art style of the game to be of a low poly style, similar to the image that is below. This style will be consistent across the game, including the forest environment, the villains and our main character and family. We aim for the colours to be vibrant in order to stay consistent with the feeling of the art style, however, base colours will look different after effects of potentially shaders for the effect of sunset and visibility. Refer below for an example created in Unity  with potential assets. 
+<p align="center">
+  <img src= "https://github.com/COMP30019/project-1-naurway-studios/assets/60732705/b8ba08cc-aa25-40bf-8694-411da71b3b7c" alt="Image 1 Description" width="300"/>
+  <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/world.png" width="300"/>
+  <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/worldLook.png" width="300"/>
+</p>
+
+**Shaders**
+* We also implemented two shaders to visually enhance our map and graphics of the game.
+* We implemented a 'toon-like' water shader that gives the water texture and movement making it seem like there are waves rippling through the water. The shader also gives it a toon-like look to fit into the game's style.
+  <p align="center">
+    <img src="https://github.com/COMP30019/project-2-naurway-studios/blob/main/Images/waterArt.png" width="300"/>
+  </p>
+* We also added another celshader to enhance the colour and visuals of the map, giving it a more cartoon like look and bolder outlines. Outlines were also added through using stencil buffer operation to further enhance the toon effect and to not lose the objects inherent shape to the colours.
 
 The current shaders that are implemented in our game, both of which are CG shaders, are: Water and Cel Shading. The two shaders were also created under the guidance and derived knowledge of tutorials to help enhance the visual aspects of our game. More on this below. 
 
@@ -485,67 +469,94 @@ public class BloodDestroyer : MonoBehaviour
     }
 }
 ```
+  
+### Sound and Music
+We aim for something akin and inspired by Doki Doki Literature Club, quiet background music with environmental noises such as trees rustling and wind blowing. We aim to have sound cues for when difficulty increases in the set minute intervals (i.e: wolves howling) and a falcon screech when the alert for falcon incoming is on screen. 
+* Resources: https://mixkit.co/free-sound-effects/game/, https://www.sounds-resource.com/, https://www.zapsplat.com/sound-effect-category/game-sounds/, SoundCloud,
+
+Music Used: 
+* Main menu and instructions background music
+  * https://www.youtube.com/watch?v=HSLwh_KOVBk
+* While playing the game
+  * https://www.youtube.com/watch?v=7cxYeiNutbs
+* For Boss Fight
+  * https://www.youtube.com/watch?v=X_ME_LndEi4
+* For victory after defeating the boss
+  * https://www.youtube.com/watch?v=TUqvYZn5nvc
+* For the Victory Scene
+  * https://www.youtube.com/watch?v=5pSCjNkHaOU
+* Game over scene
+  * https://www.youtube.com/watch?v=amAqGQ1vN6E
+
+Sounds used: 
+* Duck quack
+* Bird wings flapping
+* Wolves howling
+* Forest sounds
+* Sounds in PolyPerfect assets
+
+## USER INTERFACE (UI)
+The game’s UI is simple, we want everything to have a soft, round feel to it. We have attached an example for the sample UI for the game. The aesthetic should feel in line with the game’s poly art cute style, however have colours that are slightly less saturated compared to the game’s palette to draw less attention away from the main game. A menu can potentially be added for rebinding of keys as an extension. 
+<p align="center">
+  <img src="https://github.com/COMP30019/project-1-naurway-studios/assets/60732705/ebcb5335-e60b-4986-a505-41cb21228c99" alt="Image 1 Description" width = "450"/>
+  <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/newUIwShader.png" width = "500" />
+</p>
+
+**Health UI**
+* Every moving entity (excluding Fish) will have a health bar above it. This indicates the percentage of health left before the moving entity is dead.
+* The colour of the health UI distinguishes which entity it is:
+  * Yellow - Mother Duck
+  * Green - Ducklings, when the ducklings are very low health and are about to die, the UI health bar will turn red.
+  * Red - Enemies.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/healthUIDuck.png" width="300"/>
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/healthUIRed.png" width="300"/>
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%201.59.29%20PM.png" width="300"/>
+  </p>
 
 
-#### Which One to Mark and How to Locate 
-Blood Particle System: <br> 
-Go to Assests -> Particle Systems Folder -> Blood Particle Systems Folder -> Blood Particle System Built-In Shader Foler -> BloodVFX - InBuilt Shader Graph Prefab
+**Game Over Screen**
+* This screen is shown when either the 5 minute timer runs out and the player is not home yet
+* Or when the player has lost all 5 of their ducklings and the enemy predators have killed the mother duck. 
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%202.17.05%20AM.png" width="400"/>
+  </p>
 
-## Summary of Contributions
+**Victory Screen**
+* This screen is shown when the player has successfully reached the house with the key after defeating the boss.
+  <p align="center">
+    <img src="https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%202.18.15%20AM.png" width="400"/>
+  </p>
 
-### Edwin Li
-Game mechanics,Boss fight, enemies, GDD, README, map, camera, player abilities, 
+**Main Menu Screen**
+* This will be the first screen that the player will see
+* It will have instructions and a description of the enemies and items
+  <p align="center">
+    <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%207.45.24%20PM.png" width="500"/>
+    <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%207.46.01%20PM.png" width="500"/>
+    <img src = "https://github.com/edwnl/get-home-unity-game/blob/main/Images/Screenshot%202023-10-31%20at%207.46.07%20PM.png" width="500"/>
+  </p>
+  
+## TECHNOLOGY AND TOOLS
+Following list of software and tools we intend to use for this project:
+* Github
+* Unity
+* Discord (for communication)
+* Trello (to track feature implementations)
+* Ableton Live & Audacity (Creating and modifying game audio)
+* Blender (3D modelling)
+* Clip Studio Paint/Procreate (Creating cutscenes)
+* Photoshop (Image editing for UI, etc.)
+* Premiere Pro (creating & editing the game trailer)
+* Jetbrains Rider / Visual Studio Code (code editing)
 
-**Development Branches on GitHub**
-* https://github.com/COMP30019/project-2-naurway-studios/tree/dev/ed
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/ability-revamp
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/boss-fight
-
-### Lin Xin Xie
-UI, water shader, celshading, game over and victory scenes, GDD, README, power ups, map 
-
-**Development Branches on GitHub**
-* https://github.com/COMP30019/project-2-naurway-studios/tree/dev/lin
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/celshading
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/game-over-and-victory
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/interactable-berries
-
-### Emily Gong
-Firefly particle system, blood particle system, mud and water phyics, UI, GDD, README, audio 
-
-**Development Branches on GitHub**
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/blood-particle-system
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/emily-dev
-* https://github.com/COMP30019/project-2-naurway-studios/tree/feat/water-physics
-
-
-
-## References and External Resources
-
-**Particle System** 
-* https://www.youtube.com/watch?v=zN9NbQRzZ0c
-* https://www.youtube.com/watch?v=0PY5oV7yU4Y&t=300s
-* https://www.youtube.com/watch?v=9O5XU_jshBU
-
-**Shaders**
-* https://roystan.net/articles/toon-shader/
-* https://roystan.net/articles/toon-water/
-* https://danielilett.com/2019-05-29-tut2-intro/
-
-**Assets**
-* Environment:
-  * https://assetstore.unity.com/packages/3d/environments/landscapes/free-low-poly-nature-forest-205742
-  * https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153
-* Ducks:
-  * https://assetstore.unity.com/packages/3d/characters/animals/quirky-series-farm-animals-vol-2-182396 https://assetstore.unity.com/packages/3d/characters/animals/quirky-series-animals-mega-pack-vol-1-137259
-* Enemies:
-  * https://assetstore.unity.com/packages/3d/characters/animals/low-poly-animated-animals-93089
-
-**GamePlay**
-* https://youtu.be/t5r0AWkdLB8?list=PLuKMRhgr5rGkgABx8Sezws-ekSWIWRf4Q
-* https://youtu.be/pJoCnuzwe68?t=87
-
-**Music**
-* Yu-Peng Chen & Genshin Music
-* All music used is not for commercial reasons.
-
+<p align="center">
+ <img src = "https://github.com/COMP30019/project-2-naurway-studios/assets/19798018/079c659e-33f3-4221-897e-5323276d7a2e" width="300"/>
+ <img src = "https://github.com/COMP30019/project-2-naurway-studios/assets/19798018/f500b4bf-c89b-4e2c-8c3d-dbd6e6d69a86" width="350"/>
+</p>
+ 
+<p align="center">
+  <img src = "https://github.com/COMP30019/project-2-naurway-studios/assets/19798018/d1a20921-c1d9-4232-b8bb-fab6e330025a" width = "800" />
+</p>
+Here we have used the website Trello to create a board for our Project. This is convenient as it allows us to create lists and cards to track tasks and subtasks. Each team member is able to assign tasks, set due dates, and track project progress. 
+Also having each part of the project laid out in a board like view helps to visualise the workflow and progress of the project. 
